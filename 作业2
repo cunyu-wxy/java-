@@ -1,0 +1,53 @@
+package text;
+
+import java.util.Scanner;
+
+public class work002 {
+	public static void main(String[] arg) {
+		float width;
+		float length;
+		String type;
+		String colour;
+		float price;
+		int n;
+		float pl;
+		float pgc;
+		float pn;
+		float s;
+		float d;
+		float rl;
+		float fl;
+		float t;
+		
+		s=0.09f;
+		d=0.35f;
+		rl=0.25f;
+		fl=0.35f;
+		t=0;
+		
+		Scanner scan=new Scanner(System.in);
+		System.out.println("请输入画的长和宽：");
+		length=scan.nextFloat();
+		width=scan.nextFloat();
+		System.out.println("请输入相框的种类，regular还是fancy：");
+		type=scan.nextLine();
+		System.out.println("请输入你想要的相框颜色：");
+		colour=scan.nextLine();
+		System.out.println("需要为你相框准备的角，如果不需要，请输入0：");
+		n=scan.nextInt();
+		
+		pl=width+length;
+		pgc=width*length*s;
+		pn=d*n;
+		
+			if(type=="regular") {
+				t=pl*rl+pgc+pn;
+			}
+			else if(type=="fancy") {
+				t=pl*fl+pgc+pn;
+			}price=t;
+		System.out.println("你需要支付："+price);
+		
+	}
+
+}
