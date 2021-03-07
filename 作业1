@@ -1,0 +1,41 @@
+package text;
+
+import java.util.Scanner;
+
+public class s01 {
+	public static void main(String[] args) {
+		float price;
+		float number;
+		
+		float five;
+		float twenty;
+		float ten;
+		float fivty;
+		float two;
+		float one;
+		Scanner scan=new Scanner(System.in);
+		System.out.println("请输入商品价格");
+		price=scan.nextFloat();
+		
+		price=100*price;
+		number=price;
+		number=(int)number/100;
+		fivty=(int)((price-number*100)/50);
+		twenty=(int)(price-(100*number)-(50*fivty))/20;
+		ten=(int)(price-(100*number)-(50*fivty)-(20*twenty))/10;
+		five=(int)(price-(100*number)-(50*fivty)-(20*twenty)-(10*ten))/5;
+		two=(int)(price-(100*number)-(50*fivty)-(20*twenty)-(10*ten)-(5*five))/2;
+		one=(int)(price-(100*number)-(50*fivty)-(20*twenty)-(10*ten)-(5*five)-(2*two))/1;
+		
+		System.out.println("纸币数量："+number);
+		System.out.println("50美分硬币数量："+fivty);
+		System.out.println("20美分硬币数量："+twenty);
+		System.out.println("10美分硬币数量"+ten);
+		System.out.println("5美分硬币数量"+five);
+		System.out.println("2美分硬币数量"+two);
+		System.out.println("1美分硬币数量"+one);
+	}
+	}
+	
+	
+
