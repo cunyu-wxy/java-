@@ -1,0 +1,37 @@
+package 作业;
+
+import java.util.Scanner;
+
+public class 水仙花数 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n = 0;
+		int sum=0;
+		int s,end,a;
+		
+		s=(int)Math.pow(10,n-1);
+		end=(int)Math.pow(10,n)-1;
+		
+		
+		System.out.println("输入水仙花数的位数：");
+		Scanner scan=new Scanner(System.in);
+		n=scan.nextInt();
+		
+		
+		
+		for(int i = s;i<end;i++) {
+			a=0;
+			for(int j=0;j<n;j++) {
+				a=i%10;
+				sum+=(long)Math.pow(a, n);
+				i=(i-a)/10;
+			}
+			if(sum==i) {
+				System.out.println(+sum);
+			}
+		}
+
+	}
+
+}
