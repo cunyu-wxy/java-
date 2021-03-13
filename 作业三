@@ -1,0 +1,26 @@
+package text;
+
+import java.util.Scanner;
+
+public class work002{
+	public static void main(String[] arg) {
+		System.out.println("输入层数：");
+		Scanner scan=new Scanner(System.in);
+		int a=scan.nextInt();
+		
+		for(int i=1;i<=a;i++) {
+			for(int n=a-i;n>=1;n--) {
+				System.out.print(" ");
+			}
+			for(int j=1;j<=i;j++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+			}
+	
+}
+	
+	
+
+
