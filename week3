@@ -1,0 +1,85 @@
+package week3;
+
+import java.util.Scanner;
+
+public class zy1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		float score[];
+		score=new float[5];
+		float avg,max,min;
+		int choose=meau();
+		while(choose!=5) {
+			switch(choose) {
+			case 1:creatNewAccount(score);break;
+			case 2:avg=Average(score);System.out.println("avg="+avg);break;
+			case 3:max=Max(score);System.out.println("max="+max);break;
+			case 4:min=Min(score);System.out.println("min="+min);break;
+			default:System.out.println("错误选择");
+			}
+			choose=meau();
+		}
+		System.out.println("gun");
+
+	}
+
+
+	private static float Min(float[] score) {
+		// TODO Auto-generated method stub
+		float m=1000;
+		for(int x=0;x<score.length;x++) {
+			if(m>score[x]) {
+				m=score[x];
+			}
+		}
+		return m;
+	}
+
+
+	private static float Max(float[] score) {
+		// TODO Auto-generated method stub
+		float n=0;
+		for(int x=0;x<score.length;x++) {
+			if(n<score[x]) {
+				n=score[x];
+			}
+		}
+		return n;
+	}
+
+
+	private static float Average(float[] score) {
+		// TODO Auto-generated method stub
+		float sum = 0;
+		for(int x=0;x<score.length;x++) {
+			sum+=score[x];
+		}
+		return sum/5;
+	}
+
+
+	public static int meau() {
+		int choose=0;
+		
+		System.out.println("1.Enter Student Results");
+		System.out.println("2.Class Average");
+		System.out.println("3.Highest Grade");
+		System.out.println("4.Lowest Grade");
+		System.out.println("5.Exit");
+		
+		Scanner scan=new Scanner(System.in);
+		choose=scan.nextInt();
+		
+		return choose;
+	}
+	public static void creatNewAccount(float score[]) {
+		for(int i=0;i<score.length;i++) {
+			Scanner scan=new Scanner(System.in);
+			score[i]=scan.nextFloat();
+		}
+	}
+}
+
+
+
