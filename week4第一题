@@ -1,0 +1,41 @@
+package Address;
+
+public class address {
+	public String country;
+	public String privence;
+	public String city;
+	public String street;
+	public int code;
+	public address() {
+		country="中国";
+		privence="广东省";
+		city="惠州市";
+		street="金榜路";
+		code=516001;
+	}
+	public void displayaddress() {
+		String m;
+		m=country;
+		m+=privence;
+		m+=city;
+		m+=street;
+		m+=code;
+		System.out.println(m);
+	}
+
+}
+
+
+
+package Address;
+
+public class dispplay {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		address a1=new address();
+		a1.displayaddress();
+
+	}
+
+}
