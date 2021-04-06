@@ -1,0 +1,200 @@
+package week05;
+
+public class Subject {
+	private String subjectID;
+	private String subjectname;
+	public Subject(String subjectID,String subjectname) {
+		this.subjectID=subjectID;
+		this.subjectname=subjectname;
+	}
+	public String getSubjectID() {
+		return subjectID;
+	}
+	public void setSubjectID(String subjectID) {
+		this.subjectID = subjectID;
+	}
+	public String getSubjectname() {
+		return subjectname;
+	}
+	public void setSubjectname(String subjectname) {
+		this.subjectname = subjectname;
+	}
+	public String toString() {
+		String msg;
+		msg="sbjectID"+this.subjectID+"\n";
+		msg+="subjectname"+this.subjectname+"\n";
+		return msg;
+	}
+}
+
+
+
+
+
+
+
+
+package week05;
+
+public class Student {
+	private String studentID;
+	private String firstname;
+	private String lastname;
+	public Student(String studentID,String firstname,String lastname) {
+		this.studentID=studentID;
+		this.firstname=firstname;
+		this.lastname=lastname;
+	}
+	public String getStudebtID() {
+		return studentID;
+	}
+	public void setStudebtID(String studebtID) {
+		this.studentID = studebtID;
+	}
+	public String getFirstname() {
+		return firstname;
+	}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public String toString() {
+		String info;
+		info="studentID"+this.studentID+"\t";
+		info+="firstname"+this.firstname;
+		info+="lastname"+this.lastname;
+		return info;
+		}
+}
+
+
+
+
+
+
+package week05;
+
+public class ClassList {
+	private Subject subj;
+	private Student s1;
+	private Student s2;
+	private int semester;
+	private int year;
+	public ClassList(int year,int semester,Subject subj,Student s1,Student s2) {
+		this.year=year;
+		this.semester=semester;
+		this.subj=subj;
+		this.s1=s1;
+		this.s2=s2;
+	}
+	public Subject getSubj() {
+		return subj;
+	}
+	public void setSubj(Subject subj) {
+		this.subj = subj;
+	}
+	public Student getS1() {
+		return s1;
+	}
+	public void setS1(Student s1) {
+		this.s1 = s1;
+	}
+	public Student getS2() {
+		return s2;
+	}
+	public void setS2(Student s2) {
+		this.s2 = s2;
+	}
+	public int getSemester() {
+		return semester;
+	}
+	public void setSemester(int semester) {
+		this.semester = semester;
+	}
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}
+	public String tostring() {
+		String ll;
+		ll="year"+this.year+"\n";
+		ll+="semester"+this.semester+"\n";
+		ll+="subj"+this.subj.toString()+"\n";
+		ll+=this.s1.toString()+"\n";
+		ll+=this.s2.toString()+"\n";
+		return ll;
+	}
+}
+
+
+
+
+package week05;
+import java.util.Scanner;
+public class Driver {
+	
+public static String meau() {
+	Scanner scan=new Scanner(System.in);
+	System.out.println("请输入学期：");
+	int semester=scan.nextInt();
+	System.out.println("请输入年份：");
+	int year=scan.nextInt();
+	
+	System.out.println("输入课程id：");
+	String subjectID=scan.next();
+	System.out.println("输入课程名：");
+	String subjectname=scan.next();
+	Subject subj=new Subject(subjectID,subjectname);
+	
+	System.out.println("输入学生1学号");
+	String s1studentID=scan.next();
+	System.out.println("输入学生1姓");
+	String s1firstname=scan.next();
+	System.out.println("输入学生1名");
+	String s1lastname=scan.next();
+	Student s1=new Student(s1studentID,s1firstname,s1lastname);
+	
+	System.out.println("输入学生2学号");
+	String s2studentID=scan.next();
+	System.out.println("输入学生2姓");
+	String s2firstname=scan.next();
+	System.out.println("输入学生2名");
+	String s2lastname=scan.next();
+	Student s2=new Student(s2studentID,s2firstname,s2lastname);
+	
+	ClassList C1=new ClassList(year,semester,subj,s1,s2);
+	return C1.tostring();
+	}
+	
+
+	
+public static void main(String[] args) {
+	Scanner scan=new Scanner(System.in);
+		
+		
+		System.out.println("1.Create Attendance List");
+		System.out.println("2.Print Attendance List");
+		System.out.println("3.Exit");
+		
+		int n=scan.nextInt();
+		 while (n!=3) {
+			switch(n) {
+			case 1:meau();
+			break;
+			case 2:
+				System.out.println(meau());
+				break;
+			case 3:
+				System.out.println("over");
+			}
+			
+		 }
+	}
+}
