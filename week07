@@ -1,0 +1,173 @@
+package week7;
+
+public class Student {
+	
+	private String id;
+	private String name;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String toString() {
+		return "\t" + id + "\t" + name + "\n";
+	}
+	public Student(String id,String name){
+		this.id=id;
+		this.name=name;
+	}
+}
+
+
+
+package week7;
+
+public class Subject {
+	Student list[];
+	String id;
+	String name;
+	int maxsize;
+	
+	public Subject(String id,String name,int max){
+		this.id=id;
+		this.name=name;
+		list=new Student[max];
+		maxsize=0;
+	}
+	
+	public boolean add(Student student){
+		if (student ==null){
+			return false;
+		}
+		if(list.length<=maxsize){
+			return false;
+		}
+		list[maxsize]=student;
+		maxsize++;
+		return true;
+	}
+	
+	public boolean remove(int index){
+		int n=maxsize-1;
+		if(index>=maxsize||index<0){
+			return false;
+		}
+		for(int i=index;i<n;i++){
+			list[i]=list[i+1];
+		}
+		list[n]=null;
+		return true;
+	}
+	
+	public int indexOf(String id){
+		for(int i=0;i<list.length && list[i]!=null;i++){
+			if(list[i].getId().equals(id))
+				return i;
+		}
+		return -1;
+	}
+	
+	public Student get(int index){
+		return list[index];
+	}
+	
+	public int size(){
+		return maxsize;
+	}
+	public String tostring(){
+		String info="";
+		info+=id+"\t"+name+"\t\n";
+		for(int i=0;i<list.length&&list[i]!=null;i++){
+			info+=list[i].toString()+"\n";
+		}
+		return info;
+	}
+}
+
+
+
+
+package week7;
+
+import java.util.Scanner;
+
+public class Driver { 
+	private static Subject S1;
+	public static int meau(){
+		System.out.println("check class system");
+		System.out.println("1.creat new subject");
+		System.out.println("2.add a student");
+		System.out.println("3.quit the subject");
+		System.out.println("4.print subject details");
+		System.out.println("5.exit");
+		System.out.println("please choose your choice(1~5)");
+		Scanner scan=new Scanner(System.in);
+		int t=scan.nextInt();
+		return t;
+	}
+	
+	public static void creatsubject(){
+		System.out.println("enter the subject id");
+		Scanner scan=new Scanner(System.in);
+		String subid=scan.next();
+		System.out.println("enter the subject name");
+		String name =scan.next();
+		System.out.println("enter the maxsize of the subject");
+		int maxsize=scan.nextInt();
+	    S1=new Subject(subid,name,maxsize);
+	}
+	
+	public static void addstudent(){
+		System.out.println("enter the student id");
+		Scanner scan=new Scanner(System.in);
+		String stuid=scan.next();
+		System.out.println("enter the student name");
+		String stuname =scan.next();
+		Student s1=new Student(stuid,stuname);
+		S1.add(s1);
+	}
+	
+	public static void quit(){
+		System.out.println("enter the student id");
+		Scanner scan=new Scanner(System.in);
+		String stuid=scan.next();
+		System.out.println("enter the student name");
+		String stuname =scan.next();
+		S1.indexOf(stuid);
+		S1.remove(S1.indexOf(stuid));
+	}
+	
+	public static void display(){
+		System.out.println(S1.tostring());
+	}
+	
+	public static void main(String[] args) {
+		int o;
+		while(true){
+			o=meau();
+			if(o==5){
+				System.out.println("bye");
+				break;
+			}
+			switch(o){
+			case 1:creatsubject();
+				break;
+			case 2:addstudent();
+				break;
+			case 3:quit();
+				break;
+			case 4:display();
+				break;
+			}
+		}
+	}
+
+}
+
